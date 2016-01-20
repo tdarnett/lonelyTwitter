@@ -58,6 +58,16 @@ public class LonelyTwitterActivity extends Activity {
 
 			}
 		});
+		Button clearButton = (Button) findViewById(R.id.clear);
+		clearButton.setOnClickListener(new View.OnClickListener() {
+			public void onClick(View v){
+				setResult(RESULT_OK);
+				bodyText.setText("");
+				tweets.clear();
+				deleteFile("file.sav");
+				adapter.notifyDataSetChanged();
+			}
+		});
 	}
 
 	@Override
@@ -73,7 +83,7 @@ public class LonelyTwitterActivity extends Activity {
 	}
 
 	private void loadFromFile() {
-		ArrayList<Tweet> tweets = new ArrayList<Tweet>();
+		tweets = new ArrayList<Tweet>();
 		try {
 			FileInputStream fis = openFileInput(FILENAME);
 			BufferedReader in = new BufferedReader(new InputStreamReader(fis));
