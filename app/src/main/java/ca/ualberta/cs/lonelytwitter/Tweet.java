@@ -35,6 +35,14 @@ public abstract class Tweet {
         this.date = date;
     }
 
+    public Date getDate() {
+        return date;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
     @Override
     public String toString() {
         return date.toString() + " | " + message;
