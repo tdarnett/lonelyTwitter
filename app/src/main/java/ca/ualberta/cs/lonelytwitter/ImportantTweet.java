@@ -16,6 +16,8 @@ import java.util.Date;
  * @see Tweet
  * </p>
  *
+ * @author tarnett
+ * @version 1
  */
 public class ImportantTweet extends Tweet implements Tweetable {
     @Override

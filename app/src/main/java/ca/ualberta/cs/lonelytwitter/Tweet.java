@@ -10,6 +10,9 @@ import java.util.Date;
 /**
  * The tweet will only contain a date and the message inputted by the user.
  * You can assign a mood to the tweet as well.
+ *
+ * @author tarnett
+ * @version 1
  */
 public abstract class Tweet {
     protected Date date;

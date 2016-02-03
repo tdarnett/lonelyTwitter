@@ -18,6 +18,8 @@ import java.util.Comparator;
  *     <li>removeTweet</li>
  *     <li>getCount</li>
  * </ul>
+ * @author tarnett
+ * @version 1
  */
 public class TweetList {
     public ArrayList<Tweet> tweets = new ArrayList<Tweet>();

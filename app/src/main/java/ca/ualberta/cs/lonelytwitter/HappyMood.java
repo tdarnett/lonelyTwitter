@@ -9,6 +9,8 @@ import java.util.Date;
 /**
  * Give a happy emotion to the tweet.
  * <br> This prefaces the tweet with "I am Happy!"
+ * @author tarnett
+ * @version 1
  */
 public class HappyMood extends CurrentMood {
 

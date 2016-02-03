@@ -14,6 +14,9 @@ import java.util.Date;
  *<p>extends Tweet
  * @see Tweet
  * </p>
+ *
+ * @author tarnett
+ * @version 1
  */
 public class NormalTweet extends Tweet implements Tweetable {
     public NormalTweet(Date date, String message) {

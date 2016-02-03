@@ -8,6 +8,8 @@ import java.util.Date;
 
 /**
  * An abstract class to create a mood for a tweet. Any mood will inherit from this class
+ * @author tarnett
+ * @version 1
  */
 public abstract class CurrentMood {
     protected Date date;

@@ -8,6 +8,8 @@ import java.util.Date;
 /**
  * Give a sad emotion to the tweet.
  * <br> This prefaces the tweet with "I am sad!"
+ * @author tarnett
+ * @version 1
  */
 public class SadMood extends CurrentMood {
 
