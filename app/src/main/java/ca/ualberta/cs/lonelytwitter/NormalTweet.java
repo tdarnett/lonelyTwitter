@@ -5,6 +5,16 @@ import java.util.Date;
 /**
  * Created by romansky on 1/12/16.
  */
+
+/**
+ * A normal tweet will only output the date of creation and the user's message.
+ * <p>Implements Tweetable.
+ *@see Tweetable
+ * </p>
+ *<p>extends Tweet
+ * @see Tweet
+ * </p>
+ */
 public class NormalTweet extends Tweet implements Tweetable {
     public NormalTweet(Date date, String message) {
         super(date, message);

@@ -5,6 +5,10 @@ import java.util.Date;
 /**
  * Created by tarnett on 1/12/16.
  */
+/**
+ * Give a sad emotion to the tweet.
+ * <br> This prefaces the tweet with "I am sad!"
+ */
 public class SadMood extends CurrentMood {
 
     public SadMood(Date date, String mood) {

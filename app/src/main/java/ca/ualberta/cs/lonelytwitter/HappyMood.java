@@ -5,6 +5,11 @@ import java.util.Date;
 /**
  * Created by tarnett on 1/12/16.
  */
+
+/**
+ * Give a happy emotion to the tweet.
+ * <br> This prefaces the tweet with "I am Happy!"
+ */
 public class HappyMood extends CurrentMood {
 
     public HappyMood(Date date, String mood) {
