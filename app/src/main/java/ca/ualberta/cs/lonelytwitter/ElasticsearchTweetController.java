@@ -33,11 +33,26 @@ public class ElasticsearchTweetController {
 
             // NOTE: I'm a making a huge assumption here, that only the first search term
             // will be used.
+            String query = "{\n" +
+                    " \"query\" : {\n" +
+                    "                \"query_string\" : {\n" +
+                    "                    \"query\" : \""+search_strings[0]+"\"\n" +
+                    "                }\n" +
+                    "            },\n" +
+                    "}";
 
-            Search search = new Search.Builder(search_strings[0])
+            Search search = new Search.Builder(query)
+                    // multiple index or types can be added.
+                    .addIndex("testing")
+                    .addIndex("tweet")
+                    .build();
+
+            //SearchResult result = client.execute(search);
+
+            /*Search search = new Search.Builder(search_strings[0])
                     .addIndex("testing")
                     .addType("tweet")
-                    .build();
+                    .build();*/
 
             try {
                 SearchResult execute = client.execute(search);
