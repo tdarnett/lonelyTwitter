@@ -3,26 +3,27 @@ package ca.ualberta.cs.lonelytwitter;
 import java.util.Date;
 
 /**
- * Created by joshua2 on 9/16/15.
+ * Created by romansky on 1/12/16.
  */
-public class ImportantTweet extends Tweet {
-    public ImportantTweet(String tweet, Date date) {
-        super(tweet, date);
-        this.setText(tweet);
-        this.date = date;
+public class ImportantTweet extends Tweet implements Tweetable {
+    public ImportantTweet(Date date, String message) {
+        super(date, message);
     }
 
-    public ImportantTweet(String tweet) {
-        super(tweet);
+    public ImportantTweet(String message) {
+        super(message);
     }
 
+    @Override
     public Boolean isImportant() {
         return Boolean.TRUE;
     }
 
-    @Override
-    public String getText() {
-        return "!!!" + super.getText();
+    public Date getDate() {
+        return this.date;
     }
 
+    public String getMessage() {
+        return "!IMPORTANT! " + this.message;
+    }
 }

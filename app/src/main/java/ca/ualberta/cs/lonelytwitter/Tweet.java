@@ -1,66 +1,55 @@
 package ca.ualberta.cs.lonelytwitter;
 
-import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Date;
 
 /**
- * Created by joshua2 on 9/16/15.
+ * Created by romansky on 1/12/16.
  */
-public abstract class Tweet extends Object implements Tweetable, MyObservable {
-    private String text;
+public abstract class Tweet {
     protected Date date;
+    protected String message;
 
-    public Tweet(String tweet, Date date) throws TweetTooLongException {
-        this.setText(tweet);
+    public Tweet(Date date, String message) {
         this.date = date;
+        this.message = message;
     }
 
-    public Tweet(String tweet) throws TweetTooLongException {
-        this.setText(tweet);
+    public Tweet(String message) {
+        this.message = message;
         this.date = new Date();
-    }
-
-    public String getText() {
-        return text;
-    }
-
-    public void setText(String text) throws TweetTooLongException {
-        if (text.length() <= 140) {
-            this.text = text;
-        } else {
-            throw new TweetTooLongException();
-        }
-        notifyAllObservers();
-    }
-
-    public Date getDate() {
-        return date;
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
-        notifyAllObservers();
     }
 
     public abstract Boolean isImportant();
 
+    public Date getDate() {
+        return this.date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public String getMessage() {
+        return this.message;
+    }
+
+    public void setMessage(String message) throws TweetTooLongException {
+        if (message.length() > 140) {
+            throw new TweetTooLongException();
+        }
+        this.message = message;
+    }
+
     @Override
     public String toString() {
-        return date.toString() + " | " + text;
-    }
-
-    private volatile ArrayList<MyObserver> observers = new ArrayList<MyObserver>();
-
-    public void addObserver(MyObserver observer) {
-        observers.add(observer);
-    }
-
-    private void notifyAllObservers() {
-        for (MyObserver observer : observers) {
-            observer.myNotify(this);
+        // Some people thought they would be funny and add tweets without dates...
+        if(date == null) {
+            if(message == null) {
+                return "";
+            } else {
+                return message;
+            }
         }
+        return date.toString() + " | " + message;
     }
-
-
 }
